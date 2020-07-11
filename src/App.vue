@@ -1,28 +1,39 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <!-- <img alt="Vue logo" src="./assets/log.png" /> -->
+    <component :is="layout">
+      <router-view/>
+    </component>
+    
+  
   </div>
+ 
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import EmptyLayout from './components/layouts/EmptyLayout'
+import MainLayout from './components/layouts/MainLayout'
+// import Login from "./views/Login.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld
+    // Login,
+    EmptyLayout,
+    MainLayout
+  },
+  computed:{
+    layout(){
+    
+return (this.$route.meta.layout || 'empty') + '-layout'
+
+    }
   }
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+#app{
+  width: 100%;
 }
 </style>
