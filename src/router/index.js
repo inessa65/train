@@ -5,9 +5,9 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 const routes=[{
     path:'/recovery',
-    name: 'Recovery',
+    name: 'EmailRecovery',
     meta:{layout:'empty'},
-    component: () =>import('../views/Recovery.vue')
+    component: () =>import('../views/EmailRecovery.vue')
 },
 {
     path:'/menu',
